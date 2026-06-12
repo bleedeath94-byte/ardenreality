@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ARDEN REALITY GROUPS — ремонт подвески в Санкт-Петербурге</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Шапка */
+        .header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #0077b6;
+            padding: 18px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            font-weight: 800;
+            color: #0077b6;
+            cursor: pointer;
+        }
+
+        .logo p {
+            font-size: 0.7rem;
+            color: #5f7f9e;
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            margin: 0 auto;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e2a3e;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav a:hover {
+            color: #0077b6;
+        }
+
+        .booking-btn-header {
+            background: #0077b6;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .booking-btn-header:hover {
+            background: #005f8c;
+            transform: scale(1.02);
+        }
+
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(125deg, #e2f0f9 0%, #ffffff 80%);
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 56px 56px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #c8dce8;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 20px auto 0;
+            color: #2c4c6e;
+        }
+
+        /* Секция услуг */
+        .services-section {
+            padding: 50px 0 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 56px;
+            color: #0077b6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0edf5;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0, 119, 182, 0.2);
+            border-color: #0077b6;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e2a3e;
+        }
+
+        .service-card p {
+            color: #5f7f9e;
+            font-size: 0.95rem;
+        }
+
+        /* Таблица с ценами (адаптивная) */
+        .prices-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            border: 1px solid #e0edf5;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .price-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 700px;
+        }
+
+        .price-table th,
+        .price-table td {
+            border: 1px solid #e0edf5;
+            padding: 14px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .price-table th {
+            background-color: #e8f1f7;
+            font-weight: 700;
+            color: #0077b6;
+        }
+
+        .price-table tr:hover {
+            background-color: #f4f9fd;
+        }
+
+        /* Блок команды */
+        .team-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            border: 1px solid #e0edf5;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: #f4f9fc;
+            border-radius: 24px;
+            padding: 20px 10px;
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            background: #e8f1f7;
+            transform: translateY(-5px);
+        }
+
+        .team-card .name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .team-card .role {
+            color: #0077b6;
+            font-size: 0.85rem;
+        }
+
+        /* Форма обратной связи */
+        .contact {
+            background: #ffffff;
+            backdrop-filter: blur(4px);
+            padding: 60px 40px;
+            border-radius: 48px;
+            margin: 50px auto 40px;
+            border: 1px solid #e0edf5;
+            max-width: 1000px;
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 52px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 28px;
+            color: #0077b6;
+        }
+
+        .contact-details p {
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #2c4c6e;
+            font-size: 1rem;
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0077b6;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 20px;
+            margin: 12px 0;
+            border: 1px solid #c8dce8;
+            border-radius: 60px;
+            font-family: inherit;
+            background: #ffffff;
+            color: #1e2a3e;
+        }
+
+        .contact-form textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #0077b6;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 8px;
+        }
+
+        .contact-form button:hover {
+            background: #005f8c;
+        }
+
+        /* Карта */
+        .map-section {
+            margin: 40px auto;
+            border-radius: 48px;
+            overflow: hidden;
+            border: 1px solid #e0edf5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 36px;
+            font-size: 0.8rem;
+            color: #5f7f9e;
+            border-top: 1px solid #e0edf5;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                padding: 0 20px;
+            }
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .prices-section,
+            .team-section,
+            .contact {
+                padding: 32px 24px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .price-table th,
+            .price-table td {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo" onclick="scrollToTop()">
+            <h1>ARDEN REALITY GROUPS</h1>
+            <p>РЕМОНТ ПОДВЕСКИ В СПБ</p>
+        </div>
+        <div class="nav">
+            <a onclick="scrollToServices()">Услуги</a>
+            <a onclick="scrollToPrices()">Цены</a>
+            <a onclick="scrollToTeam()">Мастера</a>
+            <a onclick="scrollToContact()">Контакты</a>
+            <button class="booking-btn-header" onclick="scrollToBooking()">📅 Записаться онлайн</button>
+        </div>
+    </div>
+</header>
+
+<div id="mainPage">
+    <section class="hero">
+        <div class="container">
+            <h2>Профессиональный ремонт подвески</h2>
+            <p>Бесплатная диагностика ходовой при ремонте. Работаем со всеми марками авто. Честные цены и гарантия.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-title">Услуги автосервиса</div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon">🔧</div><h3>Ремонт подвески</h3><p>Амортизаторы, рычаги, шаровые опоры, сайлентблоки</p></div>
+                <div class="service-card"><div class="service-icon">⚙️</div><h3>Рулевое управление</h3><p>Рейки, наконечники, тяги, сход-развал</div></div>
+                <div class="service-card"><div class="service-icon">🛞</div><h3>Тормозная система</h3><p>Колодки, диски, суппорты, замена жидкости</div></div>
+                <div class="service-card"><div class="service-icon">🔩</div><h3>Диагностика ходовой</h3><p>Бесплатно при последующем ремонте</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок с ценами (таблица) -->
+    <section id="prices" class="container">
+        <div class="prices-section">
+            <div class="section-title">Цены на ремонт подвески</div>
+            <div class="price-table-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr><th>Работы</th><th>Стоимость</th><th>Сроки</th><th>Примечание</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Осмотр ходовой части</td><td>БЕСПЛАТНО</td><td>30 мин</td><td>Раз в месяц</td></tr>
+                        <tr><td>Замена ступичного подшипника</td><td>от 3000 ₽</td><td>1,5 ч</td><td>Зависит от модели</td></tr>
+                        <tr><td>Замена стойки стабилизатора (1 шт)</td><td>1000 ₽</td><td>30 мин</td><td></td></tr>
+                        <tr><td>Замена шаровой опоры (на болтах)</td><td>1500 ₽</td><td>1 ч</td><td></td></tr>
+                        <tr><td>Замена шаровой опоры (прессуемая)</td><td>3400 ₽</td><td>1-2 ч</td><td></td></tr>
+                        <tr><td>Замена сайлентблока переднего рычага (1 шт)</td><td>3400 ₽</td><td>1-2 ч</td><td>Требуется развал-схождение</td></tr>
+                        <tr><td>Замена пружины передней (1 шт)</td><td>от 3000 ₽</td><td>1-2 ч</td><td></td></tr>
+                        <tr><td>Замена пружины задней (1 шт)</td><td>от 1800 ₽</td><td>1-2 ч</td><td></td></tr>
+                        <tr><td>Замена амортизатора переднего (1 шт)</td><td>от 3000 ₽</td><td>1,5 ч</td><td></td></tr>
+                        <tr><td>Замена амортизатора заднего (1 шт)</td><td>от 1800 ₽</td><td>1 ч</td><td></td></tr>
+                        <tr><td>Замена рычага передней подвески в сборе</td><td>от 2800 ₽</td><td>1,5 ч</td><td></td></tr>
+                        <tr><td>Замена рулевого наконечника (1 шт)</td><td>1200 ₽</td><td>1 ч</td><td>После замена — развал</td></tr>
+                        <tr><td>Регулировка сход-развал 2 оси</td><td>2200 ₽</td><td>1 ч</td><td>3D-стенд</td></tr>
+                        <tr><td>Ремонт рулевой рейки</td><td>от 8500 ₽</td><td>от 3 ч</td><td>полная смета после осмотра</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.85rem; text-align: center; color: #5f7f9e;">* Цены ориентировочные, точная стоимость после осмотра автомобиля</p>
+        </div>
+    </section>
+
+    <!-- Блок с командой -->
+    <section id="team" class="container">
+        <div class="team-section">
+            <div class="section-title">Наши мастера</div>
+            <div class="team-grid">
+                <div class="team-card"><div class="name">Кирилл</div><div class="role">автослесарь</div></div>
+                <div class="team-card"><div class="name">Павел</div><div class="role">автослесарь</div></div>
+                <div class="team-card"><div class="name">Шакар</div><div class="role">автослесарь</div></div>
+                <div class="team-card"><div class="name">Никита</div><div class="role">мастер-приемщик</div></div>
+                <div class="team-card"><div class="name">Андрей</div><div class="role">мастер сход-развал</div></div>
+                <div class="team-card"><div class="name">Дмитрий</div><div class="role">автослесарь</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты + форма -->
+    <div id="contact" class="container">
+        <div class="contact">
+            <div class="contact-inner">
+                <div class="contact-info">
+                    <h3>ARDEN REALITY GROUPS</h3>
+                    <div class="contact-details">
+                        <p>📍 Санкт-Петербург, Загребский бульвар, 9, этаж 1, помещение 69-H</p>
+                        <p>📞 +7 (917) 954-77-19</p>
+                        <p>✉️ info@ardenreality.ru</p>
+                        <p>⏰ Ежедневно 9:00 – 21:00</p>
+                    </div>
+                </div>
+                <div id="booking" class="contact-form">
+                    <h3>Онлайн-запись</h3>
+                    <form id="emailForm" action="https://formspree.io/f/ТВОЙ_КОД_ФОРМЫ" method="POST">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <select name="service" required>
+                            <option value="" disabled selected>Выберите услугу</option>
+                            <option>Ремонт подвески</option>
+                            <option>Диагностика ходовой</option>
+                            <option>Сход-развал</option>
+                            <option>Ремонт рулевой рейки</option>
+                            <option>Другое</option>
+                        </select>
+                        <textarea name="comment" rows="2" placeholder="Комментарий (модель авто, год, проблема)"></textarea>
+                        <input type="hidden" name="_subject" value="Новая заявка с автосервиса ARDEN REALITY">
+                        <input type="text" name="_gotcha" style="display:none">
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                    <div id="formStatus" style="font-size:12px; margin-top:14px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карта проезда (здесь нужно будет заменить координаты) -->
+    <div class="container map-section">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A09d4c9add9e2ac6a8ae793e64a02f1fc4a98a056a6e2909fdeeb442e29f31530&amp;source=constructor" width="100%" height="450" frameborder="0"></iframe>
+    </div>
+
+    <footer>
+        <div class="container">
+            © 2025 ARDEN REALITY GROUPS — ремонт машин в Санкт-Петербурге
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Плавная прокрутка и анимации появления
+    const animatedElements = document.querySelectorAll('.service-card, .prices-section, .team-section, .contact');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+    
+    // Скролл к секциям
+    function scrollToServices() { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToPrices() { document.getElementById('prices')?.scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToTeam() { document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToContact() { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToBooking() { document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    
+    // Отправка формы на Formspree (без перезагрузки)
+    const form = document.getElementById('emailForm');
+    const statusDiv = document.getElementById('formStatus');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            statusDiv.innerHTML = '⏳ Отправка...';
+            statusDiv.style.color = '#0077b6';
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    statusDiv.innerHTML = '✅ Заявка отправлена! Мы перезвоним вам в ближайшее время.';
+                    statusDiv.style.color = '#2e7d32';
+                    form.reset();
+                } else {
+                    statusDiv.innerHTML = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                    statusDiv.style.color = '#c62828';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '❌ Ошибка сети. Попробуйте ещё раз.';
+                statusDiv.style.color = '#c62828';
+            }
+        });
+    }
+</script>
+</body>
+</html>
