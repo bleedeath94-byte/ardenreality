@@ -75,7 +75,6 @@
             color: #ff6b00;
         }
 
-        /* Номер телефона в шапке */
         .header-phone {
             color: #ff6b00;
             font-weight: 700;
@@ -270,6 +269,7 @@
             background: #1a2533;
         }
 
+        /* 4 преимущества */
         .features-section {
             background: #111827;
             border-radius: 48px;
@@ -280,14 +280,16 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             margin-top: 40px;
         }
 
         .feature-item {
             text-align: center;
             padding: 20px;
+            background: #0f172a;
+            border-radius: 24px;
         }
 
         .feature-number {
@@ -307,6 +309,51 @@
             color: #8a9bb0;
             font-size: 0.9rem;
             line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #111827;
+            border-radius: 48px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            border: 1px solid #2a3440;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            border-bottom: 1px solid #2a3440;
+            padding-bottom: 16px;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #ff6b00;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: #b0c4de;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: none;
+            margin-top: 8px;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.2s;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
         }
 
         .contact {
@@ -366,6 +413,7 @@
             overflow: hidden;
         }
 
+        /* Лицензионное соглашение (как на скрине) */
         .legal-section {
             background: #0f141f;
             border-radius: 32px;
@@ -411,6 +459,12 @@
             color: #5a6e85;
         }
 
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 760px) {
             .container {
                 padding: 0 20px;
@@ -422,7 +476,13 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
             .features-section {
+                padding: 30px 20px;
+            }
+            .faq-section {
                 padding: 30px 20px;
             }
             .nav {
@@ -490,6 +550,7 @@
         </div>
     </div>
 
+    <!-- 4 преимущества -->
     <div class="container" id="featuresSection">
         <div class="features-section">
             <div class="section-title">Почему именно мы</div>
@@ -497,9 +558,30 @@
                 <div class="feature-item"><div class="feature-number">01</div><div class="feature-title">Опыт и гарантия</div><div class="feature-desc">Более 10 лет на рынке, гарантия на все работы до 1 года</div></div>
                 <div class="feature-item"><div class="feature-number">02</div><div class="feature-title">Диагностика — 0 ₽</div><div class="feature-desc">Бесплатная диагностика при последующем ремонте</div></div>
                 <div class="feature-item"><div class="feature-number">03</div><div class="feature-title">Оригинальные запчасти</div><div class="feature-desc">Только проверенные поставщики</div></div>
-                <div class="feature-item"><div class="feature-number">04</div><div class="feature-title">Удобный график</div><div class="feature-desc">Ежедневно с 9:00 до 21:00, без выходных</div></div>
-                <div class="feature-item"><div class="feature-number">05</div><div class="feature-title">Прозрачные цены</div><div class="feature-desc">Смета до начала работ</div></div>
-                <div class="feature-item"><div class="feature-number">06</div><div class="feature-title">Современное оборудование</div><div class="feature-desc">3D стенд сход-развал, диагностика</div></div>
+                <div class="feature-item"><div class="feature-number">04</div><div class="feature-title">Прозрачные цены</div><div class="feature-desc">Смета до начала работ, без скрытых платежей</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="container">
+        <div class="faq-section">
+            <div class="section-title">Часто задаваемые вопросы</div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Как записаться на ремонт? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Вы можете оставить заявку через форму на сайте, позвонить по телефону +7 (917) 954-77-19 или написать в мессенджеры. Мы перезвоним и подберём удобное время.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Сколько времени занимает диагностика? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Диагностика ходовой части занимает около 30 минут. При последующем ремонте диагностика бесплатна.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Даёте ли вы гарантию на работы? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Да, на все виды работ мы предоставляем гарантию от 6 месяцев до 1 года в зависимости от типа ремонта.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Нужна ли предварительная запись? <span class="faq-icon">▼</span></div>
+                <div class="faq-answer">Да, запись желательна, чтобы мастер мог подготовить место и запчасти. Вы можете записаться онлайн или по телефону.</div>
             </div>
         </div>
     </div>
@@ -544,16 +626,20 @@
         <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7d9b2c8a3e5f1b2c4d6e8a0b1c2d3e4f5a6b7c8d9e0f&pt=30.312234,59.932105&z=17" width="100%" height="350" frameborder="0"></iframe>
     </div>
 
+    <!-- Лицензионное соглашение (как на скрине) -->
     <div class="container">
         <div class="legal-section">
-            <button class="legal-toggle" onclick="toggleLegal()">📄 Лицензионное соглашение, политика конфиденциальности и согласие на обработку данных</button>
+            <button class="legal-toggle" onclick="toggleLegal()">📄 Политика в отношении обработки персональных данных</button>
             <div id="legalContent" class="legal-content">
-                <h4>Лицензионное соглашение</h4>
-                <p>Использование материалов сайта разрешено только с письменного согласия правообладателя. Автосервис «ARDEN REALITY GROUPS» оставляет за собой право вносить изменения в цены и условия обслуживания без предварительного уведомления.</p>
-                <h4>Политика конфиденциальности</h4>
-                <p>Мы не передаём ваши персональные данные третьим лицам. Вся информация, полученная через форму записи, используется только для связи с вами и записи на ремонт.</p>
-                <h4>Согласие на обработку персональных данных</h4>
-                <p>Отправляя заявку, вы даёте согласие на обработку ваших персональных данных (имя, телефон) в целях оказания услуг автосервиса.</p>
+                <p><strong>ИП Боровинский А. В.</strong><br>
+                ОГРНИП 316784700240962<br>
+                Адрес: Санкт-Петербург, ул. Седова, 66</p>
+                <p>Настоящая политика обработки персональных данных действует в отношении всей информации, которую автосервис «ARDEN REALITY GROUPS» может получить от посетителей сайта.</p>
+                <p><strong>Согласие на обработку персональных данных</strong></p>
+                <p>Отправляя заявку через форму на сайте, вы даёте согласие на обработку ваших персональных данных (имя, телефон) для оказания услуг автосервиса и связи с вами.</p>
+                <p><strong>Важно</strong><br>
+                Все цены, указанные на сайте, приведены как справочная информация и не являются публичной офертой, определяемой положениями статьи 437 Гражданского кодекса Российской Федерации, и могут быть изменены в любое время без предупреждения.</p>
+                <p>Мы не передаём ваши данные третьим лицам. Информация используется исключительно для связи с вами.</p>
             </div>
         </div>
     </div>
@@ -563,7 +649,7 @@
     </footer>
 </div>
 
-<!-- Страницы услуг -->
+<!-- Страницы услуг (скрытые) -->
 <div id="serviceEngine" class="service-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="service-detail"><h1>Ремонт двигателя</h1><div class="price">от 8 000 ₽</div><div class="duration">Срок: от 2 часов</div><p>Диагностика, замена ГРМ, капитальный ремонт. Работаем с бензиновыми и дизельными двигателями.</p></div></div></div>
 <div id="serviceTransmission" class="service-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="service-detail"><h1>Коробка передач</h1><div class="price">от 5 000 ₽</div><div class="duration">Срок: от 3 часов</div><p>МКПП, АККП, вариатор. Диагностика, замена масла, ремонт.</p></div></div></div>
 <div id="serviceSuspension" class="service-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="service-detail"><h1>Ремонт подвески</h1><div class="price">от 3 000 ₽</div><div class="duration">Срок: от 1 часа</div><p>Амортизаторы, рычаги, шаровые опоры, сайлентблоки. Бесплатная диагностика.</p></div></div></div>
@@ -572,6 +658,12 @@
 <div id="serviceSteering" class="service-page"><div class="container"><button class="back-button" onclick="showMainPage()">← Назад к услугам</button><div class="service-detail"><h1>Рулевое управление</h1><div class="price">от 1 200 ₽</div><div class="duration">Срок: от 1 часа</div><p>Наконечники, тяги, рейки, сход-развал.</p></div></div></div>
 
 <script>
+    function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        answer.classList.toggle('show');
+        element.classList.toggle('active');
+    }
+
     function toggleLegal() {
         document.getElementById('legalContent').classList.toggle('show');
     }
